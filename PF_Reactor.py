@@ -6,3 +6,7 @@
 
 # Euler's method
 
+from Setup.Basic_Kinetics import *
+
+foo1()
+foo2()
