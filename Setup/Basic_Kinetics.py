@@ -1,6 +1,7 @@
 # Well hello there!
 # Basic kinetic data goes here
-
+import numpy as np
+import math as m
 # Activation Energies
 # unit = J per mol
 
@@ -17,3 +18,14 @@ k0_B = 4 * 10 ** 8
 k0_C = 5 * 10 ** 9
 k0_D = 6 * 10 ** 10
 
+R = 8.3145              # J mol^-1 K^-1
+
+# raw kinetics array
+raw_kins = np.array([[EA_A, k0_A], [EA_B, k0_B], [EA_C, k0_C], [EA_D, k0_D]])
+# Kinetics array function
+
+def k_arr(T):
+    result = np.zeros(len(raw_kins))
+    for i in range(len(raw_kins)):
+        result[i] = raw_kins[i,1] * m.e**(-raw_kins[i,0]/R/T)
+    return result
