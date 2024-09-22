@@ -24,8 +24,18 @@ R = 8.3145              # J mol^-1 K^-1
 raw_kins = np.array([[EA_A, k0_A], [EA_B, k0_B], [EA_C, k0_C], [EA_D, k0_D]])
 # Kinetics array function
 
-def k_arr(T):
+
+def k_arr(temperature):
     result = np.zeros(len(raw_kins))
     for i in range(len(raw_kins)):
-        result[i] = raw_kins[i,1] * m.e**(-raw_kins[i,0]/R/T)
+        result[i] = raw_kins[i, 1] * m.e**(-raw_kins[i, 0]/R/temperature)
     return result
+
+
+def reac_fun_pl(conditions, rate_constants):
+    gradients = np.zeros(len(conditions))
+
+    for i in range(len(conditions)):
+        gradients[i] = rate_constants[i] * conditions
+
+    return gradients
