@@ -17,9 +17,3 @@ k0_B = 4 * 10 ** 8
 k0_C = 5 * 10 ** 9
 k0_D = 6 * 10 ** 10
 
-
-def foo1():
-    print("Foo!")
-
-def foo2():
-    print("Fighters!")

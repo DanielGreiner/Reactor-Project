@@ -1,12 +1,10 @@
 # Code for the Plug flow reactor model, simple 1D
 
-# Runge Kutta method
-
-
-
-# Euler's method
+#imports
 
 from Setup.Basic_Kinetics import *
+from Setup.Reactor_Constants import *
+from Setup.ODE_Solvers import *
 
-foo1()
-foo2()
+RK4()
+Euler()
