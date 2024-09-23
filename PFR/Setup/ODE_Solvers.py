@@ -77,9 +77,9 @@ def euler(step_array, function, *args):
     arguments = args[1:]
     result = np.zeros((len(step_array), len(argument_0)))
     result[0, :] = argument_0[:]
-    print('first line set:')
-    print(result)
-    print('stepsize : ' + str(stepsize))
+    # print('first line set:')
+    # print(result)
+    # print('stepsize : ' + str(stepsize))
     # iterate over the function given step array
     if len(arguments) == 0:
         for i in range(1, len(step_array)):
@@ -90,7 +90,7 @@ def euler(step_array, function, *args):
             result[i, :] = result[i - 1, :] + temp
     # print(result)
     combined_result = np.concatenate((result, step_array.reshape(-1, 1)), axis=1)
-    print(combined_result)
+
     return combined_result
 
 

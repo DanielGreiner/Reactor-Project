@@ -18,12 +18,22 @@ def reac_fun_pl(conditions, rate_constants):
 
     # reaction orders from nu
     for reaction in range(len(nu_array)):
-        temp_c = np.array(len(nu_array))
+        temp_c = np.zeros(len(conditions))
+
         for species in range(len(conditions)):
             if nu_array[reaction, species] <= 0:
                 temp_c[species] = conditions[species]**abs(nu_array[reaction, species])
             else:
                 temp_c[species] = 1
-            gradients[species] = nu_array[reaction, species] * rate_constants[reaction] * temp_c
+        # print('reaction : ')
+        # print(reaction)
+        # print('temp_c : ')
+        # print(temp_c)
+        # print('product : ')
+        # print(np.prod(temp_c))
+        for i in range(len(conditions)):
+            gradients[i] += nu_array[reaction, i] * rate_constants[reaction] * np.prod(temp_c)
+        # print(gradients)
+
     return gradients
 
