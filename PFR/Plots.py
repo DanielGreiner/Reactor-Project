@@ -87,3 +87,4 @@ C_A0 = 2.0  # Initial concentration of A (mol/L)
 V_max = 10.0  # Total reactor volume (L)
 
 solve_pftr(k, F_A0, C_A0, V_max)
+
