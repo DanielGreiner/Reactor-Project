@@ -5,7 +5,7 @@ from PFR.Setup.Basic_Kinetics import nu_array
 '''power reaction law function'''
 
 
-def reac_fun_pl(conditions, rate_constants):
+def reac_fun_pl(t, conditions, rate_constants):
     gradients = np.zeros(len(conditions))
 
     '''for species in range(len(conditions)):
